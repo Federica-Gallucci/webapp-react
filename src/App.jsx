@@ -2,7 +2,7 @@ import HomePage from "./pages/HomePage";
 import Contacts from "./pages/Contacts";
 import AboutUs from "./pages/AboutUs";
 
-import DetailsMoviePage from "./pages/DetailsMoviePage";
+import MoviePage from "./pages/MoviePage";
 
 import DefaultLayout from "./layouts/DefaultLayout";
 
@@ -18,7 +18,9 @@ export default function App() {
             <Route path="/about" element={<AboutUs />}></Route>
             <Route path="/contacts" element={<Contacts />}></Route>
 
-            <Route path="/movies" element={<DetailsMoviePage />}></Route>
+            <Route path="/movies">
+              <Route path=":id" element={<MoviePage />}></Route>
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
