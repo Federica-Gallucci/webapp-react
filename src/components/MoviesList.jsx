@@ -1,30 +1,30 @@
+import axios from "axios";
 import Card from "./Card";
+import { useState, useEffect } from "react";
 
 export default function MoviesList() {
+  const [movies, setMovies] = useState([]);
+  const moviesUrl = import.meta.env.VITE_BOOKS_API_URL + "/movies";
+
+  const fetchmovies = () => {
+    axios.get(moviesUrl).then((res) => {
+      console.log(res.data);
+      const dataMovies = res.data;
+      setMovies(dataMovies);
+    });
+  };
+
+  useEffect(fetchmovies, []);
+
   return (
     <>
       <div className="container">
-        <div className="row g-3 "></div>
-        <div className="col-4">
-          <Card
-            title={"titolo"}
-            abstract={"estratto"}
-            link={"/movies/1"}
-          ></Card>
-        </div>
-        <div className="col-4">
-          <Card
-            title={"titolo"}
-            abstract={"estratto"}
-            link={"/movies/2"}
-          ></Card>
-        </div>
-        <div className="col-4">
-          <Card
-            title={"titolo"}
-            abstract={"estratto"}
-            link={"/movies/3"}
-          ></Card>
+        <div className="row g-3 ">
+          <div className="col-4">
+            {movies.map((movie, id) => {
+              return <Card key={id} movies={movie}></Card>;
+            })}
+          </div>
         </div>
       </div>
     </>
