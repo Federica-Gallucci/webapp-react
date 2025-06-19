@@ -19,10 +19,10 @@ export default function MoviesList() {
   return (
     <>
       <div className="container">
-        <div className="row g-3 ">
-          <div className="col-4">
+        <div className="row  g-3 ">
+          <div className=" col-6">
             {movies.map((movie, id) => {
-              return <Card key={id} movies={movie}></Card>;
+              return <Card key={id} movie={movie}></Card>;
             })}
           </div>
         </div>
