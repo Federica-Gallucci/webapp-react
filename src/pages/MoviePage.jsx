@@ -49,18 +49,16 @@ export default function MoviePage() {
           {movie.genre}
         </div>
         {/* <div>
-        <strong>Voto:</strong>
-        {movies.review.vote}
-      </div> */}
+          <strong>Voto:</strong>
+          {movie.reviews.vote}
+        </div> */}
       </section>
 
       <section className="container m-3">
         <ReviewsList reviews={movie.reviews} />
       </section>
       <section className="container m-3">
-        <h3>Form delle recensioni</h3>
-
-        <ReviewForm />
+        <ReviewForm idMovie={movie.id} />
       </section>
     </>
   );
