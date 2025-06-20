@@ -9,7 +9,7 @@ export default function MoviesList() {
   const fetchmovies = () => {
     axios.get(moviesUrl).then((res) => {
       console.log(res.data);
-      const dataMovies = res.data;
+      const dataMovies = res.data.movies;
       setMovies(dataMovies);
     });
   };
